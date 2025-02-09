@@ -100,7 +100,7 @@ let operator = ['+', '-', '*', '/'];
 let maxQuestions = 10;
 ```
 ---
-- [ ] Pakeisti/sutvarkyti nuotraukas
+- [x] Pakeisti/sutvarkyti nuotraukas
 ---
 
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img4.png)
