@@ -1,14 +1,14 @@
-# OVERVIEW
-A Simple Maths Quiz build purely on HTML, CSS and JavaScript. No API is used in generating question or Options.
-All the questions are generated randomly. The same way are the options.
+# APŽVALGA
+Paprasas matematikos klausimynas, sukurtas tik naudojant HTML, CSS ir JavaScript. Klausimai ir atsakymo parinktys generuojami atsitiktinai, be jokios API pagalbos.
 
-# TIMER
-Timer feature is now added. Each question will have a time limit(10s here).
-If the user is unable to pick the answer within that limit, next question will appear and scored for that question is counted zero.
+# LAIKMAČIO FUNKCIJA
+Dabar pridėta laikmačio funkcija. Kiekvienas klausimas turi laiko limitą (čia 10 sek.).
+Jei vartotojas nesugeba pasirinkti atsakymo per šį laiką, pasirodys kitas klausimas, o už šį klausimą bus suteikiama nulis taškų.
 
-# SCORING
-Time based feature added. The scores now will be generated on the basis of how much of time was left for that particular question.
-A simple linear function is used. (Ex : If the user finishes one question in 9s, the sore for that question will be 90%).
+# BALAVIMO SISTEMA
+Pridėta laiko pagrindu veikianti funkcija. Taškai dabar bus skaičiuojami pagal tai, kiek laiko liko užduodant klausimą.
+Naudojama paprasta linijinė funkcija (pavyzdžiui: jei vartotojas atsako į klausimą per 9 sek., balas už šį klausimą bus 90%).
 
-![image](https://user-images.githubusercontent.com/78557222/122156687-2022f200-ce87-11eb-952d-41f1c9ce44bc.png)
-![image](https://user-images.githubusercontent.com/78557222/122156702-274a0000-ce87-11eb-86a4-7e6296c8d8bc.png)
+![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-24.png)
+![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-14.png)
+![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-36.png)
