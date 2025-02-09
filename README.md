@@ -69,3 +69,4 @@ Naudojama paprasta linijinė funkcija (pavyzdžiui: jei vartotojas atsako į kla
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img1.png)
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img2.png)
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img3.png)
+
