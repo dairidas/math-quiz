@@ -9,6 +9,6 @@ Jei vartotojas nesugeba pasirinkti atsakymo per šį laiką, pasirodys kitas kla
 Pridėta laiko pagrindu veikianti funkcija. Taškai dabar bus skaičiuojami pagal tai, kiek laiko liko užduodant klausimą.
 Naudojama paprasta linijinė funkcija (pavyzdžiui: jei vartotojas atsako į klausimą per 9 sek., balas už šį klausimą bus 90%).
 
-![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-24.png)
-![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-14.png)
-![image](file:///home/dairidas/Paveiksl%C4%97liai/Ekrano%20nuotraukos/Ekrano%20nuotrauka%20i%C5%A1%202025-02-09%2010-35-36.png)
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img1.png)
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img2.png)
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img3.png)
