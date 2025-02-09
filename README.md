@@ -102,6 +102,8 @@ let maxQuestions = 10;
 ---
 - [x] Pakeisti/sutvarkyti nuotraukas
 ---
+- [ ] Pridėti High Score/Rekordas
+---
 
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img4.png)
 ---
