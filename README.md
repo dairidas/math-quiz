@@ -118,8 +118,6 @@ function timed() {
 ---
 - [x] Pridėti komentarai prie html ir js kodų
 ---
-- [ ] Pridėti High Score/Rekordas
----
 
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img4.png)
 ---
