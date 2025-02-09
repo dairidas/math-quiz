@@ -40,7 +40,7 @@ function whenFinished() {
 
 function suggestNumber() {
     let min = 10
-    let max = 20;
+    let max = 30;
     return Math.floor(Math.random() * (max - min)) + min;
 }
 

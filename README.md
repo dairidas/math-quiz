@@ -1,8 +1,24 @@
-- [x] ~~Write the press release~~
+# [Mano svetainė](https://dairidas.github.io/math-quiz/)
+# **APŽVALGA**
+> Paprastas matematikos klausimynas, sukurtas tik naudojant HTML, CSS ir JavaScript. Klausimai ir atsakymo parinktys generuojami atsitiktinai, be jokios API pagalbos.
 ---
-- [x] ~~Išsiverčiau svetainę į lietuvių kalbą~~
+
+# **LAIKMAČIO FUNKCIJA**
+> Dabar pridėta laikmačio funkcija. Kiekvienas klausimas turi laiko limitą (10 sek.).
+> Jei vartotojas nesugeba pasirinkti atsakymo per šį laiką, pasirodys kitas klausimas, o už šį klausimą bus suteikiama nulis taškų.
 ---
-- [x] ~~5 galimi atsakymo variantai su kodu apačioje~~
+# **BALAVIMO SISTEMA**
+> Pridėta laiko pagrindu veikianti funkcija. Taškai dabar bus skaičiuojami pagal tai, kiek laiko liko užduodant klausimą.
+> Naudojama paprasta linijinė funkcija (pavyzdžiui: jei vartotojas atsako į klausimą per 9 sek., balas už šį klausimą bus 90%).
+---
+
+- [x] Įsikelti į savo failus iš:
+
+### [kecav/math-quiz](https://github.com/kecav/math-quiz)
+---
+- [x] Išsiverčiau svetainę į lietuvių kalbą
+---
+- [x] 5 galimi atsakymo variantai, su kodu apačioje:
 ```html
 <div class="answer-card">
     <button>Atsakymas A</button>
@@ -60,7 +76,7 @@ buttons[4].addEventListener('click', () => {
 });
 ```
 ---
-- [x] ~~Galima pakeisti klausimai nuo 10 iki 20 skaitmenų su kodu apačioje~~
+- [x] Galima pakeisti klausimų skaitmenų skaičių, su kodu apačioje:
 ```js
 function suggestNumber() {
     let min = 10
@@ -69,12 +85,12 @@ function suggestNumber() {
 }
 ```
 ---
-- [x] ~~Galima pasirinkti kokius veiksmus užduoti su kodu apačioje~~
+- [x] Galima pasirinkti kokius veiksmus užduoti, su kodu apačioje:
 ```js
 let operator = ['+', '-', '*', '/'];
 ```
 ---
-- [x] ~~Galima pakeisti klausimų skaičių su kodu apačioje~~
+- [x] Galima pakeisti klausimų skaičių, su kodu apačioje:
 ```html
 <p>Klausimas :
     <span id="Qno">0</span>/10
@@ -86,21 +102,10 @@ let maxQuestions = 10;
 ---
 - [ ] Pakeisti/sutvarkyti nuotraukas
 ---
-# **APŽVALGA**
-> Paprasas matematikos klausimynas, sukurtas tik naudojant HTML, CSS ir JavaScript. Klausimai ir atsakymo parinktys generuojami atsitiktinai, be jokios API pagalbos.
----
 
-# **LAIKMAČIO FUNKCIJA**
-> Dabar pridėta laikmačio funkcija. Kiekvienas klausimas turi laiko limitą (čia 10 sek.).
-> Jei vartotojas nesugeba pasirinkti atsakymo per šį laiką, pasirodys kitas klausimas, o už šį klausimą bus suteikiama nulis taškų.
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img4.png)
 ---
-# **BALAVIMO SISTEMA**
-> Pridėta laiko pagrindu veikianti funkcija. Taškai dabar bus skaičiuojami pagal tai, kiek laiko liko užduodant klausimą.
-> Naudojama paprasta linijinė funkcija (pavyzdžiui: jei vartotojas atsako į klausimą per 9 sek., balas už šį klausimą bus 90%).
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img5.png)
 ---
-![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img1.png)
----
-![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img2.png)
----
-![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img3.png)
+![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img6.png)
 
