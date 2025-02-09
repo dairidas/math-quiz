@@ -16,7 +16,6 @@ let progress = document.getElementById("progress");
 let message = document.getElementById("message");
 let timer = document.getElementById("timer");
 let operator = ['+', '-', '*', '/'];
-let maxNum = 20;
 let maxQuestions = 10;
 let t;
 
@@ -39,6 +38,12 @@ function whenFinished() {
     lastmessage();
 }
 
+function suggestNumber() {
+    let min = 10
+    let max = 20;
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function nextQuestion() {
 
     progress.style.width = "100%";
@@ -48,8 +53,8 @@ function nextQuestion() {
     if (qNo.innerText === ""+maxQuestions) {
         whenFinished();
     }
-    n1 = Math.floor(Math.random() * maxNum);
-    n2 = Math.floor(Math.random() * maxNum);
+    n1 = suggestNumber();
+    n2 = suggestNumber();
     opSelector = operator[Math.floor(Math.random() * operator.length)];
 
     if (opSelector === "/") {
@@ -57,8 +62,8 @@ function nextQuestion() {
             if (n1 % n2 == 0 && n1 != 0 && n2 != 0 && n2 != 1 && n1 != n2) {
                 break;
             }
-            n1 = Math.floor(Math.random() * maxNum);
-            n2 = Math.floor(Math.random() * maxNum);
+            n1 = suggestNumber();
+            n2 = suggestNumber();
         }
     }
 
@@ -67,8 +72,8 @@ function nextQuestion() {
             if (n1 * n2 <= 1000) {
                 break;
             }
-            n1 = Math.floor(Math.random() * maxNum);
-            n2 = Math.floor(Math.random() * maxNum);
+            n1 = suggestNumber();
+            n2 = suggestNumber();
         }
     }
     question.innerHTML = n1 + opSelector + n2;
@@ -89,7 +94,7 @@ function getOptions() {
         } else if (answer > 30 && answer < 100) {
             buttons[i].innerHTML = answer + Math.floor(Math.random() * answer * 0.6);
         } else {
-            buttons[i].innerHTML = Math.floor(Math.random() * maxNum);
+            buttons[i].innerHTML = suggestNumber();
         }
 
         if (answer < 0) {
