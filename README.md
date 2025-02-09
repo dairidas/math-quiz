@@ -15,10 +15,12 @@
 - [x] Įsikelti į savo failus iš:
 
 ### [kecav/math-quiz](https://github.com/kecav/math-quiz)
----
 - [x] Išsiverčiau svetainę į lietuvių kalbą
+- [x] Pakeisti/sutvarkyti nuotraukas
+- [x] Pridėti komentarai prie html ir js kodų
 ---
-- [x] 5 galimi atsakymo variantai, su kodu apačioje:
+# Galimi pakeitimai
+- Galimi daugiau atsakymo variantų, su kodu apačioje:
 ```html
 <div class="answer-card">
     <button>Atsakymas A</button> <!-- 1 atsakymo laukelis -->
@@ -26,6 +28,8 @@
     <button>Atsakymas C</button> <!-- 3 atsakymo laukelis -->
     <button>Atsakymas D</button> <!-- 4 atsakymo laukelis -->
     <button>Atsakymas E</button> <!-- 5 atsakymo laukelis -->
+    <button>Atsakymas F</button>
+    ...
 </div>
 ```
 ```js
@@ -74,9 +78,18 @@ buttons[4].addEventListener('click', () => {
     clearInterval(t); // sustabdo laikmatį
     outro(4); // pakeičia klausimą po 500 m/s
 });
+buttons[5].addEventListener('click', () => {
+    if (buttons[5].innerText == answer) { // patikrina ar teisingai ar ne
+        doWhenCorrect(5);
+    } else {
+        doWhenIncorrect(5);
+    }
+    clearInterval(t); // sustabdo laikmatį
+    outro(5); // pakeičia klausimą po 500 m/s
+});
 ```
 ---
-- [x] Galima pakeisti klausimų skaitmenų skaičių, su kodu apačioje:
+- Galima pakeisti klausimo skaitmenų skaičių, su kodu apačioje:
 ```js
 function suggestNumber() {
     let min = 10; // mažiausias skaičius
@@ -85,12 +98,12 @@ function suggestNumber() {
 }
 ```
 ---
-- [x] Galima pasirinkti kokius veiksmus užduoti, su kodu apačioje:
+- Galima pasirinkti kokius veiksmus užduoti, su kodu apačioje:
 ```js
 let operator = ['+', '-', '*', '/']; // kokie veiksmai daromi
 ```
 ---
-- [x] Galima pakeisti klausimų skaičių, su kodu apačioje:
+- Galima pakeisti klausimų skaičių, su kodu apačioje:
 ```html
 <p>Klausimas :
     <span id="Qno">0</span>/10 <!-- Klausimų skaičius (10)-->
@@ -100,9 +113,8 @@ let operator = ['+', '-', '*', '/']; // kokie veiksmai daromi
 let maxQuestions = 10; // maksimalus klausimų skaičius
 ```
 ---
-- [x] Pakeisti/sutvarkyti nuotraukas
----
-- [x] Galima pakeisti laikmačio greitį, su kodu apačioje:
+
+- Galima pakeisti laikmačio greitį, su kodu apačioje:
 ```js
 function timed() {
     t = setInterval(() => {
@@ -116,9 +128,49 @@ function timed() {
 }
 ```
 ---
-- [x] Pridėti komentarai prie html ir js kodų
----
 
+- Galima pakeisti iki kokio skaičiau galima sandauga, su kodu apačioje:
+```js
+if (opSelector === "*") {
+    for (let i = 0; i < 100; i++) { // kartoja 100 kartų
+        if (n1 * n2 <= 1000) { // tikrina ar sandauga nėra daugiau 1000
+            break;
+        }
+        n1 = suggestNumber(); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
+        n2 = suggestNumber(); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
+    }
+}
+```
+---
+- Galima pakeisti teisingo atsakymo spalvą, su kodu apačioje:
+```js
+function doWhenCorrect(i) { // Keičia teisingo mygtuko spalvą į žalią ir prideda taškų
+    buttons[i].style.color = "#fff";
+    buttons[i].style.backgroundColor = "green";
+    getScore();
+}
+```
+---
+- Galima pakeisti neteisingo atsakymo spalvą, su kodu apačioje:
+```js
+function doWhenIncorrect(i) { // Keičia neteisingo mygtuko spalvą į raudoną
+    buttons[i].style.color = "#fff";
+    buttons[i].style.backgroundColor = "#fb3640";
+    // console.log("wrong");
+}
+```
+---
+- Galima pakeisti po kiek laiko pasikeis klausimas, su kodu apačioje:
+```js
+function outro(i) { // Po trumpo vėlavimo pradeda naują klausimą ir atkuria mygtukų spalvas
+    setTimeout(() => {
+        nextQuestion();
+        buttons[i].style.color = "#000";
+        buttons[i].style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+    }, 500); // klausimas pasikeis po 500 m/s
+}
+```
+---
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img4.png)
 ---
 ![image](https://raw.githubusercontent.com/dairidas/math-quiz/master/media/img5.png)

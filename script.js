@@ -69,7 +69,7 @@ function nextQuestion() {
 
     if (opSelector === "*") {
         for (let i = 0; i < 100; i++) { // kartoja 100 kartų
-            if (n1 * n2 <= 1000) { // tikrina ar sandauga nėra lygi 1000
+            if (n1 * n2 <= 1000) { // tikrina ar sandauga nėra daugiau 1000
                 break;
             }
             n1 = suggestNumber(); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
@@ -132,7 +132,7 @@ function outro(i) { // Po trumpo vėlavimo pradeda naują klausimą ir atkuria m
         nextQuestion();
         buttons[i].style.color = "#000";
         buttons[i].style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-    }, 500);
+    }, 500); // klausimas pasikeis po 500 m/s
 }
 
 function lastmessage() {
