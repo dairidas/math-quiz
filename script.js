@@ -16,6 +16,7 @@ let progress = document.getElementById("progress");
 let message = document.getElementById("message");
 let timer = document.getElementById("timer");
 let operator = ['+', '-', '*', '/']; // kokie veiksmai daromi
+// let operator = ['+', '-'];
 let maxQuestions = 10; // maksimalus klausimų skaičius
 let t;
 
@@ -38,9 +39,7 @@ function whenFinished() {
     lastmessage(); // iškviečia paskutinę žinutę, kuri rodo rezultatą pagal surinktus taškus
 }
 
-function suggestNumber() {
-    let min = 10; // mažiausias skaičius
-    let max = 30; // didžiausias skaičius
+function suggestNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min; // sugalvoja random skaičių 0 iki 1, palieka sviekają dalį, sugalvotą skaičių * max - min + min
 }
 
@@ -48,32 +47,45 @@ function nextQuestion() {
 
     progress.style.width = "100%";
     timed();
-    // timed();
     fScore.innerHTML = score.innerHTML;
-    if (qNo.innerText === ""+maxQuestions) { // tikrina ar pasiektas maksimalus klausimų skaičius
+    if (qNo.innerText === "" + maxQuestions) { // tikrina ar pasiektas maksimalus klausimų skaičius
         whenFinished(); // jiegu pasiektas tada iškviečia pabaigos ekraną
     }
-    n1 = suggestNumber(); // sukuria skaičių
-    n2 = suggestNumber(); // sukuria skaičių
     opSelector = operator[Math.floor(Math.random() * operator.length)]; // parenka atsitiktinį veiksmą (+, -, /, :)
+
+    if (opSelector === "+") {
+        n1 = suggestNumber(20, 100); // sukuria skaičių
+        n2 = suggestNumber(20, 100); // sukuria skaičių
+    }
+
+    if (opSelector === "-") {
+        for (let i = 0; i < 100; i++) {
+            n1 = suggestNumber(50, 100);
+            n2 = suggestNumber(20, 50);
+            if (n1 - n2 > 0) {
+                break;
+            }
+        }
+    }
+
 
     if (opSelector === "/") {
         for (let i = 0; i < 200; i++) { // kartoja 200 kartų
-            if (n1 % n2 == 0 && n1 != 0 && n2 != 0 && n2 != 1 && n1 != n2) {
+            n1 = suggestNumber(100, 200); // jeigu per 200 kartų neatitinka if sąlygos tai kartoja
+            n2 = suggestNumber(5, 10); // jeigu per 200 kartų neatitinka if sąlygos tai kartoja
+            if (n1 % n2 === 0 && n1 !== n2) {
                 break;
             }
-            n1 = suggestNumber(); // jeigu per 200 kartų neatitinka if sąlygos tai kartoja
-            n2 = suggestNumber(); // jeigu per 200 kartų neatitinka if sąlygos tai kartoja
         }
     }
 
     if (opSelector === "*") {
         for (let i = 0; i < 100; i++) { // kartoja 100 kartų
+            n1 = suggestNumber(100, 200); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
+            n2 = suggestNumber(5, 10); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
             if (n1 * n2 <= 1000) { // tikrina ar sandauga nėra daugiau 1000
                 break;
             }
-            n1 = suggestNumber(); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
-            n2 = suggestNumber(); // jeigu per 100 kartų neatitinka if sąlygos tai kartoja
         }
     }
     question.innerHTML = n1 + opSelector + n2;
@@ -88,18 +100,18 @@ function nextQuestion() {
 
 function getOptions() {
 
-    for (let i = 0; i < 5; i++ && i != ansOpt) { // teisingas atsakymas įdedamas į vieną iš mygtukų
-        if (answer > 100) { // jeigu atsakymas daugiau nei 100
-            buttons[i].innerHTML = answer + Math.floor(Math.random() * answer * 0.4); // atsakymą + (0-1(palieka sveikają dalį) * 0.4
-        } else if (answer > 30 && answer < 100) {
-            buttons[i].innerHTML = answer + Math.floor(Math.random() * answer * 0.6); // atsakymą + (0-1(palieka sveikają dalį) * 0.6
-        } else {
-            buttons[i].innerHTML = suggestNumber();
+    let choices = new Set();
+    for (let i = 0; i < 5; i++ && i !== ansOpt) { // teisingas atsakymas įdedamas į vieną iš mygtukų
+        let n = suggestNumber(answer - 10, answer + 10);
+        for (let i = 0; i < 100; i++) {
+            // console.log("answer suggest: " + answer + ", " + n);
+            if (n > 0 && n !== answer && !choices.has(n)) {
+                break;
+            }
+            n = suggestNumber(answer - 10, answer + 10);
         }
-
-        if (answer < 0) {
-            buttons[i].innerHTML = "-" + buttons[i].innerHTML;
-        }
+        buttons[i].innerHTML = n
+        choices.add(n);
     }
     ansOpt = Math.floor(Math.random() * 5);
     buttons[ansOpt].innerHTML = answer;
@@ -156,11 +168,11 @@ function timed() { // valdo laikmatį
     t = setInterval(() => {
         progress.style.width = (parseInt(progress.style.width) - 1) + "%";
         // console.log("called");
-        if (parseInt(progress.style.width) == 0) { // jei progreso juosta pasiekia 0%, automatiškai pereina prie kito klausimo
+        if (parseInt(progress.style.width) === 0) { // jei progreso juosta pasiekia 0%, automatiškai pereina prie kito klausimo
             clearInterval(t);
             nextQuestion();
         }
-    }, 100) // laikmačio greitis m/s
+    }, 500) // laikmačio greitis m/s
 }
 
 buttons[0].addEventListener('click', () => {
